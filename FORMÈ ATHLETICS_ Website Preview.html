@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FORMÈ ATHLETICS | Premium Fitness Education</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--graphite:#1C1D20;--cloud:#F2F4F1;--sun:#FFC928;--line:rgba(242,244,241,.12);--muted:rgba(242,244,241,.68)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--graphite);color:var(--cloud);font-family:Inter,system-ui,sans-serif;line-height:1.6;padding-top:env(safe-area-inset-top,0px)}
+h1,h2,h3,.display{font-family:"Space Grotesk",Inter,sans-serif;letter-spacing:-.01em;line-height:1.05}
+a{color:inherit;text-decoration:none}
+img,svg{max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+section{padding:112px 0;border-top:1px solid var(--line)}
+.eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--sun);font-weight:600}
+.logo{font-family:"Space Grotesk",sans-serif;font-weight:700;letter-spacing:.08em;font-size:20px}
+.logo span{color:var(--sun)}
+.btn{display:inline-block;padding:14px 26px;font-weight:600;font-size:14px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--sun);transition:all .25s ease;cursor:pointer;background:none;color:var(--cloud);font-family:inherit}
+.btn:hover{transform:translateY(-2px)}
+.btn-sun{background:var(--sun);color:var(--graphite)}
+.btn-sun:hover{background:transparent;color:var(--sun)}
+.btn-ghost:hover{background:var(--cloud);color:var(--graphite);border-color:var(--cloud)}
+header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(28,29,32,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav ul{display:flex;gap:28px;list-style:none;font-size:14px}
+.nav ul a{color:var(--muted);transition:color .2s}
+.nav ul a:hover,.nav ul a.active{color:var(--sun)}
+.menu-btn{display:none;background:none;border:0;color:var(--cloud);font-size:22px;cursor:pointer}
+.hero{min-height:100vh;display:flex;align-items:center;padding-top:72px;border:0;position:relative;overflow:hidden}
+.hero-visual{position:absolute;right:-8%;top:0;bottom:0;width:52%;background:linear-gradient(160deg,#2a2c31,#131416);border-left:1px solid var(--line)}
+.hero-visual::after{content:"Replace with athletic photography";position:absolute;bottom:24px;left:24px;font-size:12px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+.hero h1{font-size:clamp(44px,8vw,96px);max-width:820px;animation:rise .9s ease both}
+.hero h1 em{font-style:normal;color:var(--sun)}
+.hero p{font-size:18px;color:var(--muted);max-width:520px;margin:28px 0 40px;animation:rise .9s .15s ease both}
+.hero .ctas{display:flex;gap:14px;flex-wrap:wrap;animation:rise .9s .3s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.h2{font-size:clamp(34px,5vw,56px);margin:14px 0 18px}
+.lead{color:var(--muted);max-width:640px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:56px}
+.card{background:#232428;border:1px solid var(--line);padding:36px 30px;display:flex;flex-direction:column;position:relative;transition:transform .3s ease,border-color .3s ease}
+.card:hover{transform:translateY(-4px);border-color:rgba(255,201,40,.5)}
+.card.featured{border-color:var(--sun)}
+.badge{position:absolute;top:-12px;left:30px;background:var(--sun);color:var(--graphite);font-size:11px;font-weight:700;letter-spacing:.14em;padding:5px 10px}
+.card h3{font-size:28px;margin-top:10px}
+.price{font-family:"Space Grotesk";font-size:52px;font-weight:700;margin:20px 0 4px}
+.price small{font-size:14px;color:var(--muted);font-weight:400}
+.tag{font-size:13px;letter-spacing:.1em;color:var(--sun);text-transform:uppercase;margin-bottom:22px}
+.card ul{list-style:none;margin:6px 0 28px;flex:1}
+.card li{padding:9px 0;border-top:1px solid var(--line);font-size:15px;color:var(--muted)}
+.card .actions{display:grid;gap:10px}
+.card .actions .btn{text-align:center}
+.feature{border-top:1px solid var(--sun);padding-top:24px}
+.feature .n{font-family:"Space Grotesk";color:var(--sun);font-size:14px}
+.feature h3{font-size:22px;margin:12px 0 10px}
+.feature p{color:var(--muted);font-size:15px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.split .panel{aspect-ratio:4/5;background:linear-gradient(160deg,#2a2c31,#131416);border:1px solid var(--line);position:relative}
+.split .panel::after{content:"Athletic photography";position:absolute;bottom:20px;left:20px;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+details{border-top:1px solid var(--line);padding:22px 0}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-family:"Space Grotesk";font-size:20px;list-style:none;display:flex;justify-content:space-between}
+summary::after{content:"+";color:var(--sun)}
+details[open] summary::after{content:"–"}
+details p{color:var(--muted);margin-top:12px;max-width:720px}
+form{display:grid;gap:16px;max-width:560px}
+label{font-size:13px;color:var(--muted);display:grid;gap:6px}
+input,textarea{background:#232428;border:1px solid var(--line);color:var(--cloud);padding:14px;font:inherit;border-radius:0}
+input:focus,textarea:focus{outline:2px solid var(--sun);outline-offset:0}
+.err{color:#ff8a8a;font-size:13px;min-height:18px}
+.notice{border:1px solid var(--sun);padding:18px;font-size:14px;color:var(--muted);margin-top:20px}
+.page{display:none;padding-top:150px;min-height:80vh;border:0}
+.page.show{display:block;animation:rise .5s ease both}
+.sub-section{display:none}
+.route-active{display:block}
+.detail{display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:start}
+.checklist li{padding:12px 0;border-top:1px solid var(--line);color:var(--muted)}
+.summary-box{background:#232428;border:1px solid var(--line);padding:32px}
+.summary-box .row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line)}
+footer{background:#141517;padding:80px 0 0;border-top:1px solid var(--line)}
+.foot{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+.foot h4{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--sun);margin-bottom:16px}
+.foot a,.foot p{display:block;color:var(--muted);font-size:14px;margin-bottom:10px}
+.foot a:hover{color:var(--sun)}
+.legal{border-top:1px solid var(--line);margin-top:60px;padding:28px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:12px;color:var(--muted)}
+.watermark{text-align:center;font-size:11px;letter-spacing:.3em;text-transform:uppercase;opacity:.35;padding:0 0 32px}
+.policy p{color:var(--muted);margin-top:14px;max-width:760px}
+@media (max-width:900px){
+ .nav ul{display:none;position:absolute;top:72px;left:0;right:0;background:var(--graphite);flex-direction:column;padding:24px;border-bottom:1px solid var(--line)}
+ .nav ul.open{display:flex}
+ .menu-btn{display:block}
+ .nav .btn{display:none}
+ .grid3,.grid4,.split,.detail,.foot{grid-template-columns:1fr}
+ .hero-visual{display:none}
+ section{padding:80px 0}
+ .foot{gap:28px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="wrap nav">
+  <a href="#home" class="logo">FORMÈ <span>ATHLETICS</span></a>
+  <ul id="navlinks">
+   <li><a href="#home">Home</a></li>
+   <li><a href="#about">About</a></li>
+   <li><a href="#courses">Courses</a></li>
+   <li><a href="#philosophy">Our Philosophy</a></li>
+   <li><a href="#faq">FAQ</a></li>
+   <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#courses" class="btn btn-sun">Get Started</a>
+  <button class="menu-btn" aria-label="Open menu" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+ </div>
+</header>
+
+<main>
+<!-- HOME -->
+<div id="home" class="page-group">
+ <section class="hero">
+  <div class="hero-visual" aria-hidden="true"></div>
+  <div class="wrap" style="position:relative">
+   <p class="eyebrow" style="margin-bottom:24px">Premium Fitness Education &amp; Performance Academy</p>
+   <h1>BUILD YOUR STRENGTH.<br><em>MASTER YOUR FORM.</em></h1>
+   <p>Structured fitness education designed to help you train smarter, build consistency and develop sustainable habits.</p>
+   <div class="ctas">
+    <a href="#courses" class="btn btn-sun">Explore Courses</a>
+    <a href="#philosophy" class="btn btn-ghost">Our Philosophy</a>
+   </div>
+  </div>
+ </section>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+ <div class="wrap split">
+  <div>
+   <p class="eyebrow">About FORMÈ</p>
+   <h2 class="h2">EDUCATION FIRST.<br>EVERY REP.</h2>
+   <p class="lead">FORMÈ ATHLETICS is a fitness education platform built on structured learning. We teach the principles behind training, from exercise technique and progression to recovery and habit building, so you can train with confidence for the long term.</p>
+  </div>
+  <div class="panel" aria-hidden="true"></div>
+ </div>
+</section>
+
+<!-- COURSES -->
+<section id="courses">
+ <div class="wrap">
+  <p class="eyebrow">Courses &amp; Pricing</p>
+  <h2 class="h2">CHOOSE YOUR TRAINING LEVEL.</h2>
+  <p class="lead">Three structured pathways. One commitment to progress.</p>
+  <div class="grid3" id="course-grid"></div>
+ </div>
+</section>
+
+<!-- COURSE DETAIL -->
+<section id="course-detail" class="sub-section" style="border:0">
+ <div class="wrap" id="detail-body"></div>
+</section>
+
+<!-- CHECKOUT -->
+<section id="checkout" class="sub-section" style="border:0">
+ <div class="wrap" id="checkout-body"></div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section id="philosophy">
+ <div class="wrap split">
+  <div class="panel" aria-hidden="true"></div>
+  <div>
+   <p class="eyebrow">Training Philosophy</p>
+   <h2 class="h2">DISCIPLINE IS BUILT.<br>NOT BORROWED.</h2>
+   <p class="lead">At FORMÈ, we believe fitness is a long-term learning process. Real progress comes from understanding your body, training responsibly and building habits that last.</p>
+  </div>
+ </div>
+</section>
+
+<!-- WHY -->
+<section id="why">
+ <div class="wrap">
+  <p class="eyebrow">Why FORMÈ</p>
+  <h2 class="h2">MORE THAN JUST WORKOUTS.</h2>
+  <div class="grid4">
+   <div class="feature"><div class="n">01</div><h3>STRUCTURED LEARNING</h3><p>Learn fitness fundamentals through organized training material.</p></div>
+   <div class="feature"><div class="n">02</div><h3>SMARTER TRAINING</h3><p>Understand workout structure, exercise technique and progression.</p></div>
+   <div class="feature"><div class="n">03</div><h3>BETTER HABITS</h3><p>Develop sustainable routines around training, rest and consistency.</p></div>
+   <div class="feature"><div class="n">04</div><h3>PERSONAL GUIDANCE</h3><p>Get additional guidance and support through the Advanced package.</p></div>
+  </div>
+ </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+ <div class="wrap" style="max-width:860px">
+  <p class="eyebrow">FAQ</p>
+  <h2 class="h2">QUESTIONS, ANSWERED.</h2>
+  <details><summary>Is this medical advice?</summary><p>No. FORMÈ content is educational and is not a substitute for medical advice. Consult a qualified healthcare professional before starting a new exercise programme, especially if you have a medical condition.</p></details>
+  <details><summary>Do you guarantee results?</summary><p>No. We do not promise guaranteed transformations. Results depend on many factors, including consistency, recovery and individual circumstances.</p></details>
+  <details><summary>Who can take these courses?</summary><p>Courses are written for adults. Younger users should train under suitable adult or qualified professional supervision.</p></details>
+  <details><summary>What is included in Advanced personal guidance?</summary><p>Advanced includes everything in Beginner and Pro, plus individual progress reviews and help with training-related questions, as described on the course page.</p></details>
+  <details><summary>How do refunds work?</summary><p>Please review our Refund Policy in the footer for full details.</p></details>
+ </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+ <div class="wrap split">
+  <div>
+   <p class="eyebrow">Contact &amp; Support</p>
+   <h2 class="h2">WE’RE HERE TO HELP.</h2>
+   <p class="lead">Questions about a course or your order? Send us a message and we’ll respond as soon as we can.</p>
+  </div>
+  <div>
+   <form id="contact-form" novalidate>
+    <label>Name<input name="name" required></label>
+    <label>Email<input name="email" type="email" required></label>
+    <label>Message<textarea name="message" rows="5" required></textarea></label>
+    <div class="err" id="contact-err"></div>
+    <button class="btn btn-sun" type="submit">Send Message</button>
+    <p id="contact-ok" style="display:none;color:var(--sun)">Thank you. Your message has been received.</p>
+   </form>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="wrap">
+  <div class="foot">
+   <div><div class="logo">FORMÈ <span>ATHLETICS</span></div><p style="margin-top:16px;max-width:320px">Premium fitness education for structured, sustainable training.</p></div>
+   <div><h4>Navigate</h4><a href="#about">About</a><a href="#philosophy">Philosophy</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div>
+   <div><h4>Courses</h4><a href="#course/beginner">Beginner, $3</a><a href="#course/pro">Pro, $5</a><a href="#course/advanced">Advanced, $8</a></div>
+   <div><h4>Legal</h4><a href="#policy/terms">Terms &amp; Conditions</a><a href="#policy/privacy">Privacy Policy</a><a href="#policy/refund">Refund Policy</a><p>Email: [contact@yourdomain.com]</p></div>
+  </div>
+  <div class="legal"><span>© 2026 FORMÈ ATHLETICS. Educational content only.</span><span>Not a substitute for medical advice.</span></div>
+  <div class="watermark">Designed &amp; Developed by FORMÈ Limited</div>
+ </div>
+</footer>
+
+<script>
+const COURSES = {
+ beginner:{num:"01",name:"BEGINNER",price:3,tag:"START WITH THE FUNDAMENTALS.",
+  overview:"A foundation course covering how training works, how to move well and how to build a routine you can keep.",
+  objectives:["Understand core training principles","Perform foundational exercises with good technique","Build a warm-up and cooldown routine","Apply basic recovery principles"],
+  includes:["Introduction to fitness","Basic workout knowledge","Beginner-friendly workout routines","Exercise fundamentals","Warm-up and cooldown education","Basic recovery principles","Introduction to consistency and discipline"],
+  duration:"Self-paced"},
+ pro:{num:"02",name:"PRO",price:5,tag:"TAKE YOUR TRAINING FURTHER.",featured:true,
+  overview:"Builds on Beginner with structured programming, scheduling and progress tracking.",
+  objectives:["Follow a progressive training structure","Design a workout split that fits your schedule","Strengthen sleep and recovery habits","Track progress with consistent metrics"],
+  includes:["Everything in Beginner, plus:","More detailed workout programs","Progressive training structure","Advanced exercise education","Workout splits and scheduling","Habit development","Recovery and sleep education","Training consistency strategies","Fitness progress tracking"],
+  duration:"Self-paced"},
+ advanced:{num:"03",name:"ADVANCED",price:8,tag:"A MORE PERSONAL APPROACH.",
+  overview:"Our most complete pathway, combining comprehensive resources with additional personal guidance.",
+  objectives:["Work through comprehensive training resources","Receive guidance tailored to your goals","Review your progress with individual feedback","Get help with training-related questions"],
+  includes:["Everything in Beginner and Pro, plus:","Comprehensive training resources","Detailed workout guidance","Personalized training guidance","Individual progress reviews","Personal support and assistance","Habit and routine guidance","Help with training-related questions"],
+  duration:"Self-paced"}
+};
+const $=s=>document.querySelector(s);
+const fmt=n=>"$"+n.toFixed(2)+" USD";
+
+function renderGrid(){
+ $("#course-grid").innerHTML=Object.entries(COURSES).map(([k,c])=>`
+  <article class="card ${c.featured?"featured":""}">
+   ${c.featured?'<span class="badge">MOST POPULAR</span>':""}
+   <div class="eyebrow">Course ${c.num}</div>
+   <h3>${c.name}</h3>
+   <div class="tag">${c.tag}</div>
+   <div class="price">$${c.price}<small> USD</small></div>
+   <ul>${c.includes.slice(0,4).map(i=>`<li>${i}</li>`).join("")}<li>+ ${c.includes.length-4} more</li></ul>
+   <div class="actions">
+    <a class="btn ${c.featured?"btn-sun":"btn-ghost"}" href="#course/${k}">View Details</a>
+    <a class="btn btn-sun" href="#checkout/${k}">Get ${c.name.charAt(0)+c.name.slice(1).toLowerCase()}</a>
+   </div>
+  </article>`).join("");
+}
+
+function renderDetail(k){
+ const c=COURSES[k]; if(!c) return;
+ $("#detail-body").innerHTML=`
+  <p class="eyebrow">Course ${c.num}</p>
+  <h2 class="h2">${c.name}</h2>
+  <div class="detail">
+   <div>
+    <h3 style="font-size:22px;margin-bottom:12px">Overview</h3><p class="lead">${c.overview}</p>
+    <h3 style="font-size:22px;margin:40px 0 12px">Learning objectives</h3>
+    <ul class="checklist">${c.objectives.map(o=>`<li>${o}</li>`).join("")}</ul>
+    <h3 style="font-size:22px;margin:40px 0 12px">Included modules</h3>
+    <ul class="checklist">${c.includes.map(i=>`<li>${i}</li>`).join("")}</ul>
+    <p class="lead" style="margin-top:32px;font-size:14px">Duration: ${c.duration}. Educational material only. Not a substitute for medical advice.</p>
+   </div>
+   <aside class="summary-box">
+    <div class="price" style="margin-top:0">$${c.price}<small> USD</small></div>
+    <p class="lead" style="margin:12px 0 24px">${c.tag}</p>
+    <a class="btn btn-sun" style="width:100%;text-align:center" href="#checkout/${k}">Get ${c.name.charAt(0)+c.name.slice(1).toLowerCase()}</a>
+    <p style="font-size:13px;color:var(--muted);margin-top:18px">Pricing shown in USD. Payment is processed securely by our payment provider.</p>
+   </aside>
+  </div>`;
+}
+
+function renderCheckout(k){
+ const c=COURSES[k]; if(!c) return;
+ $("#checkout-body").innerHTML=`
+  <p class="eyebrow">Checkout</p>
+  <h2 class="h2">${c.name} COURSE</h2>
+  <div class="detail">
+   <form id="checkout-form" novalidate>
+    <label>Full name<input name="name" required autocomplete="name"></label>
+    <label>Email<input name="email" type="email" required autocomplete="email"></label>
+    <label>Country<input name="country" required autocomplete="country-name"></label>
+    <label style="display:flex;gap:10px;align-items:flex-start;font-size:14px"><input type="checkbox" name="terms" required style="width:auto;margin-top:4px"> I agree to the Terms &amp; Conditions and Refund Policy.</label>
+    <div class="err" id="checkout-err"></div>
+    <button class="btn btn-sun" type="submit" id="pay-btn">Pay with Stripe</button>
+    <div class="notice" id="checkout-status" style="display:none"></div>
+   </form>
+   <aside class="summary-box">
+    <h3 style="font-size:20px;margin-bottom:12px">Order summary</h3>
+    <div class="row"><span>${c.name} course</span><span>${fmt(c.price)}</span></div>
+    <div class="row"><span>Total</span><strong>${fmt(c.price)}</strong></div>
+    <p style="font-size:13px;color:var(--muted);margin-top:18px">Access is granted only after the payment provider confirms payment on our secure backend.</p>
+   </aside>
+  </div>`;
+}
+
+function validate(form,errId){
+ const err=$(errId); err.textContent="";
+ if(!form.checkValidity()){ err.textContent="Please complete all required fields correctly."; form.reportValidity(); return false; }
+ return true;
+}
+
+document.addEventListener("submit",async e=>{
+ if(e.target.id==="checkout-form"){
+  e.preventDefault();
+  const f=e.target; if(!validate(f,"#checkout-err")) return;
+  const btn=$("#pay-btn"), status=$("#checkout-status");
+  btn.disabled=true; btn.textContent="Connecting…";
+  status.style.display="block";
+  try{
+   const k=location.hash.split("/")[1];
+   const res=await fetch("/api/create-checkout-session",{method:"POST",headers:{"Content-Type":"application/json"},
+     body:JSON.stringify({course:k,email:f.email.value,name:f.name.value,country:f.country.value})});
+   if(!res.ok) throw new Error("Server not configured");
+   const {url}=await res.json(); location.href=url;
+  }catch(err){
+   status.innerHTML="<strong>Payment integration not configured.</strong> Add your Stripe keys on the backend (see README). No payment has been taken and no order has been created.";
+   btn.disabled=false; btn.textContent="Pay with Stripe";
+  }
+ }
+ if(e.target.id==="contact-form"){
+  e.preventDefault();
+  if(!validate(e.target,"#contact-err")) return;
+  e.target.style.display="none"; $("#contact-ok").style.display="block";
+ }
+});
+
+const POLICIES={terms:"Terms & Conditions",privacy:"Privacy Policy",refund:"Refund Policy"};
+const SHOW=["home","about","courses","philosophy","why","faq","contact"];
+function route(){
+ const h=location.hash.replace("#","")||"home";
+ const [a,b]=h.split("/");
+ document.querySelectorAll(".sub-section").forEach(s=>s.classList.remove("route-active"));
+ document.querySelectorAll("section").forEach(s=>{ if(!s.classList.contains("sub-section")) s.style.display=""; });
+ if(a==="course"){ renderDetail(b); $("#course-detail").classList.add("route-active"); scrollTo(0,0); return; }
+ if(a==="checkout"){ renderCheckout(b); $("#checkout").classList.add("route-active"); scrollTo(0,0); return; }
+ if(a==="policy"){
+  $("#detail-body").innerHTML=`<div class="policy"><p class="eyebrow">Legal</p><h2 class="h2">${POLICIES[b]||"Policy"}</h2><p>[Placeholder: insert your ${POLICIES[b]||"policy"} text, reviewed by a qualified legal professional before publication.]</p></div>`;
+  $("#course-detail").classList.add("route-active"); scrollTo(0,0); return;
+ }
+ const target=document.getElementById(a)||document.getElementById("home");
+ target.scrollIntoView({behavior:"smooth"});
+ document.querySelectorAll(".nav ul a").forEach(l=>l.classList.toggle("active",l.getAttribute("href")==="#"+a));
+ $("#navlinks").classList.remove("open");
+}
+window.addEventListener("hashchange",route);
+renderGrid();
+route();
+</script>
+</body>
+</html>
